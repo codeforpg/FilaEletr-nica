@@ -113,12 +113,14 @@
              $result = mysqli_query($conn, $query);
              $row= mysqli_fetch_array($result, MYSQLI_ASSOC);
              $codPaciente = $row["codPaciente"];
+             $cor = $row["cor"];
              $codigo = $row["codigo"];
 
             //  $querysenhachamada="UPDATE  `Paciente` SET `emitido`='1' WHERE `codPaciente` LIKE '$codPaciente'";
             //  $resultchamada = mysqli_query($conn,$querysenhachamada);
             //  //echo $querysenhachamada;
           ?>
+              <img src="images/<?php echo $cor; ?>.png" alt=""/>
               <font  style="font-size:155px"><font color="#da0000"><strong><?php echo $codigo; ?></strong></font></font>
 
         </div>
