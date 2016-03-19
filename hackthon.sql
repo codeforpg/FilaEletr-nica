@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 06-Mar-2016 às 13:51
+-- Data de Criação: 19-Mar-2016 às 14:28
 -- Versão do servidor: 5.5.47-0ubuntu0.14.04.1
 -- versão do PHP: 5.5.9-1ubuntu4.14
 
@@ -17,13 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de Dados: `hackathon`
+-- Base de Dados: `hackthon`
 --
-
-DELIMITER $$
---
--- Procedures
---
+CREATE DATABASE IF NOT EXISTS `hackthon` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `hackthon`;
 
 -- --------------------------------------------------------
 
@@ -84,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `Paciente` (
   `Administrador_codAdministrador` int(11) DEFAULT NULL,
   PRIMARY KEY (`codPaciente`),
   KEY `fk_Notícia_Administrador1_idx` (`Administrador_codAdministrador`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=105 ;
 
 -- --------------------------------------------------------
 
@@ -145,8 +142,8 @@ CREATE TABLE IF NOT EXISTS `Usuario` (
 -- Limitadores para a tabela `Administrador`
 --
 ALTER TABLE `Administrador`
-  ADD CONSTRAINT `fk_Administrador_Usuario1` FOREIGN KEY (`Usuario_codUsuario`) REFERENCES `Usuario` (`codUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Administrador_Unidade1` FOREIGN KEY (`Unidade_codUnidade`) REFERENCES `Unidade` (`codUnidade`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_Administrador_Unidade1` FOREIGN KEY (`Unidade_codUnidade`) REFERENCES `Unidade` (`codUnidade`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Administrador_Usuario1` FOREIGN KEY (`Usuario_codUsuario`) REFERENCES `Usuario` (`codUsuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `Cidade`
